@@ -44,13 +44,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        final AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MainActivity.this);
-        alertBuilder.setTitle("Settings");
-        alertBuilder.
+
+
 
         switch (id){
             case R.id.action_settings:
+                final AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertBuilder.setTitle("Settings");
+                alertBuilder.setMessage("123");
+                alertBuilder.create();
+                alertBuilder.show();
 
+                break;
             case R.id.back:
                 onBackPressed();
                 break;
@@ -66,5 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
 
