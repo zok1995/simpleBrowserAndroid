@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private WebView mWevView;
-    //private MyWebViewClient mMyWebViewClient;
+    private MyWebViewClient mMyWebViewClient;
     private Toast mToast;
 
     @Override
