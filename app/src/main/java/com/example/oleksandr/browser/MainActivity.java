@@ -1,6 +1,8 @@
 package com.example.oleksandr.browser;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -24,16 +26,8 @@ public class MainActivity extends AppCompatActivity {
         mWevView.setWebViewClient(new MyWebViewClient());
     }
 
-    @Override
-    public void onBackPressed() {
-        if (mWevView.canGoBack()){
-            mWevView.goBack();
-        }else {
-            super.onBackPressed();
-            mToast=  Toast.makeText(getApplicationContext(), "The last page", Toast.LENGTH_LONG);
-            mToast.show();
-        }
-    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -52,7 +46,19 @@ public class MainActivity extends AppCompatActivity {
                 final AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MainActivity.this);
                 alertBuilder.setTitle("Settings");
                 alertBuilder.setMessage("123");
-                alertBuilder.create();
+                alertBuilder.setIcon(R.mipmap.ic_launcher);
+                alertBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //TODO
+                    }
+                });
+                alertBuilder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //TODO
+                    }
+                });
                 alertBuilder.show();
 
                 break;
@@ -71,6 +77,18 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        if (mWevView.canGoBack()){
+            mWevView.goBack();
+        }else {
+            super.onBackPressed();
+            mToast=  Toast.makeText(getApplicationContext(), "The last page", Toast.LENGTH_LONG);
+            mToast.show();
+        }
+    }
+
 
 
 }
